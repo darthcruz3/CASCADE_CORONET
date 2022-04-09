@@ -62,19 +62,29 @@ def get_user_input():
 user_input = get_user_input()
 
 # set a subheader and display the users input
-st.subheader('User input:')
+#st.subheader('User input:')
 # so when user puts in a value, we can see it on the app
-st.write(user_input)
+#st.write(user_input)
 
+st.header('CASCADE/CORONET study')
+st.subheader('Clinical deterioration risk stratification Machine-learning model in COVID-19')
 
+st.write(' ')
+st.write('A collaborative project between Portsmouth University Hospital, UK, Cincinnati Medical Centre, USA, Ohio State College of Medicine, USA and AKARI therapeutics Ltd.')
+st.write(' ')
+st.write(' ')
+st.write('**probable clinical risk at ~80% accuracy suggests:**')
 y_new = LDA_model_1.predict(user_input)
 #st.write(y_new)
 
 if y_new == 1:
-    st.write("this patient's biomarker profile is within normal parameters")
+    st.write("**within normal parameters**")
     
 elif y_new == 2:
-    st.write("this patient is likely to be clinically stable")
+    st.write("**clinically stable**")
     
 elif y_new == 3:
-    st.write("This patient's biomarker profile suggests potential clinical deterioration")
+    st.write("**PROBABLE CLINICAL DETERIORATION**")
+
+st.write('')
+st.write('Note: this model is in development stage, not yet for approved clinical use')
